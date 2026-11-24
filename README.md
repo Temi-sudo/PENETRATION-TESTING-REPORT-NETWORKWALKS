@@ -96,3 +96,7 @@ The report includes command syntax, observed results, attacker significance, and
         <td>Local IP and MAC address identification</td>
       </tr>
   </table>
+  
+  ## Activities Performed and Findings:
+  ### Footprinting & Reconnaissance:
+  I conducted reconnaissance on the networkwalks.com domain using six Kali Linux tools: whois, whatWeb, nslookup, curl -l, wafw00f, and DNSRecon. 
