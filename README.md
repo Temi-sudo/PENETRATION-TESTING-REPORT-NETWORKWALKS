@@ -44,3 +44,55 @@
         <td>Analyst</td>
       </tr>
   </table>
+
+## Liability Disclaimer:
+All reconnaissance queries and network scans in this report were conducted exclusively within lab environments owned by the author or with explicit permission for educational purposes on specified external domains.<br> 
+The methodologies presented are for defensive research and ethical hacking training only. Unauthorized activities against third-party systems without consent are illegal and carry severe penalties. 
+<br>The authors disclaim responsibility for any misuse of the information; each individual is accountable for their actions, which can lead to criminal charges and professional repercussions.
+## Project Overview:
+This report details the footprinting of the <code>networkwalks.com</code> domain using Kali Linux and scanning of my local network using <b>Zenmap</b>, as part of my internship at <b>Networkwalks</b>. <br>
+Two main modules are documented: Footprinting of <code>networkwalks.com</code> domain and active network discovery of my local network.<br>
+The report includes command syntax, observed results, attacker significance, and screenshot evidence, demonstrating the process from open-source intelligence (OSINT) collection to active host mapping.
+## Tools Used:
+<table>
+      <tr>
+        <th>Tools</th>
+        <th>Usage</th>
+      </tr>
+      <tr>
+        <td>Kali Linux & Windows</td>
+        <td>Operating systems used for reconnaissance activities</td>
+      </tr>
+      <tr>
+        <td><code>whois</code></td>
+        <td>Find domain registration details (owner, dates, name servers).</td>
+      </tr>
+        <tr>
+        <td><code>whatweb</code></td>
+        <td>Fingerprint web technologies (server, CMS, plugins, IP).</td>
+      </tr>
+        <tr>
+        <td><code>nslookup</code></td>
+        <td>Resolve the domain name to its IP address using DNS.</td>
+      </tr>
+        <tr>
+        <td><code>curl -I</code></td>
+        <td>Read the website's HTTP response headers.</td>
+      </tr>
+        <tr>
+    <td><code>wafw00f</code></td>
+        <td>Detect whether a Web Application Firewall protects the site.</td>
+      </tr>
+        <tr>
+       <td><code>dnsrecon</code></td>
+        <td>Enumerate all DNS records (NS, MX, SPF, TXT, SRV).</td>
+      </tr>
+        <tr>
+     <td><b>Zenmap (Nmap GUI)</b></td>
+        <td>Scan the local subnet to find live hosts, IPs, and MAC addresses.</td>
+      </tr>
+        <tr>
+     <td><b>Windows CMD</b></td>
+        <td>Local IP and MAC address identification</td>
+      </tr>
+  </table>
