@@ -171,7 +171,7 @@ The example results also included two MAC addresses.
         <tr>
       <td>6</td>
         <td><b>Multiple live hosts visible on local network</b></td> 	
-        <td>Zenmap identified four live hosts in the example network</td>
+        <td>Zenmap identified four live hosts in the example network Zenmap discovered 3 live nodes on 192.168.43.0/24 and open ports 135, 139, 445/tcp on 10.0.0.10</td>
         <td>Unknown or unauthorized devices may potentially be present on a network</td>
               <td>🟠 Medium</td>   
       </tr>
@@ -185,10 +185,11 @@ The example results also included two MAC addresses.
 <p>Thus, the availability of information such as a software version, IP address, or DNS record does not imply that the system is susceptible. Additional authorized security testing would be necessary to confirm any potential vulnerability.</p>
 
 6. Recommendations
-Based on the observations from these activities, I recommend the following security improvements:
+Based on the observations, security enhancements which include establishing defensive mechanisms to limit both external and internal attack surfaces are as follows:
 
-Review publicly exposed technology information
-Organizations should regularly review what information about their web technologies, CMS and plugins is publicly visible.
+Examine publicly available technical information.
+Organizations should routinely assess what information about their web technologies, CMS, and plugins is publicly available.
+Disable Version Banners and Meta Generators Set up Apache (ServerTokens Prod), BIND (version "not disclosed"), and WordPress to remove version numbers from HTML meta tags and DNS chaos queries.
 
 Keep software updated
 CMS platforms, plugins and other web technologies should be regularly updated and reviewed against current security advisories.
