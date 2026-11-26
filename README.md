@@ -184,36 +184,51 @@ The example results also included two MAC addresses.
 
 <p>Thus, the availability of information such as a software version, IP address, or DNS record does not imply that the system is susceptible. Additional authorized security testing would be necessary to confirm any potential vulnerability.</p>
 
-6. Recommendations
-Based on the observations, security enhancements which include establishing defensive mechanisms to limit both external and internal attack surfaces are as follows:
+ ## 6. Recommendations
+Based on the observations, these security enhancements, which include establishing defensive mechanisms to limit both external and internal attack surfaces, are as follows:
 
-Examine publicly available technical information.
-Organizations should routinely assess what information about their web technologies, CMS, and plugins is publicly available.
-Disable Version Banners and Meta Generators Set up Apache (ServerTokens Prod), BIND (version "not disclosed"), and WordPress to remove version numbers from HTML meta tags and DNS chaos queries.
+1. <b>Examine publicly available information and disable Version Banners and Meta Generators</b><br>
+A routine assessment of what information about the organization (web technologies, CMS, plugins, version banners, and meta generators) is publicly available and should be reduced to the bare minimum.
 
-Keep software updated
-CMS platforms, plugins and other web technologies should be regularly updated and reviewed against current security advisories.
+2. <b>Regularly update softwares</b><br>
+CMS platform (WordPress core), themes, plugins, and other web technologies should be updated regularly.
 
-Review HTTP headers
-HTTP response headers should be reviewed to determine whether unnecessary technical information is being exposed.
+3. <b>HTTP headers hardening</b><br>
+ Configure and review the web server or reverse proxy to strip identifying banners and enforce security headers.
 
-Review DNS records regularly
-DNS records should be checked periodically to ensure that only required information and services are publicly exposed.
+4. <b>DNS records safeguard</b><br>
+Ensure DNS record hardening by locking down published DNS zone records and registrar delegation against spoofing and dangling-record takeovers. Enable DNSSEC, Publish CAA records, Enforce email authentication (SPF, DKIM, DMARC)
 
-Properly configure and monitor the WAF
-Keep the WAF (ModSecurity) enabled and tuned, since it already blocks naive attacks.
+5. <b>Enable and Tune ModSecurity web application firewall (WAF)</b><br>
+Ensure <b>ModSecurity</b> web application firewall (WAF) engine (v2 or v3 <code>libmodsecurity</code>) is paired with the <b>OWASP Core Rule Set (CRS)</b>, tuning rules to prevent false positives, and enforcing strict request/response limits
 
-Perform regular internal network discovery
-Organizations should periodically scan their own networks to identify active devices.
+6. <b>Carry out periodical internal network discovery</b><br>
+Conduct scheduled audits across the internal network to verify active devices and detect unauthorized devices.
 
-Investigate unknown devices
-Any unexpected device discovered during network scanning should be investigated and verified.
+7. <b>Restrict local Windows SMB (Server Message Block) and NetBIOS services</b><br>
+Limit or block how a Windows computer shares files, printers, network names, and remote services over the internal network.
 
-Maintain network documentation
-Network topology and device information should be documented and updated regularly.
+8. <b>Maintain Accurate Network Topology Documentations</b><br>
+ Ensure all network diagrams and records remain current, accurate, and accessible to support rapid troubleshooting, security audits, and infrastructure planning.
 
-Perform security testing with authorization
-Reconnaissance and scanning should only be performed against systems and networks where appropriate authorization has been provided.
+9. <b>Ensure Penetration Testing (pen test) Authorization</b><br>
+Ensure written, pre-approved guidelines and boundaries authorizing a security test and defining how it runs to protect both the client and the pen tester team from outages, misunderstandings, and legal exposure.
+
+ ## 7. Conclusion
+In Week 2 of my Cybersecurity & Ethical Hacking internship, I carried out hands-on activities focused on footprinting, reconnaissance, and network scanning.<br>
+In the Phase 1 footprinting activity, I used six Kali Linux tools (<code>whois, whatweb, nslookup, curl -I, wafw00f, and dnsrecon</code>)  to collect information about the target domain.<br>
+
+<code>whois</code> provided the domain information, <code>whatweb</code> identified the web technologies, <code>nslookup</code> resolved domain names into IP addresses, <code>curl -I</code> inspected HTTP headers, <code>wafw00f</code>identified a ModSecurity WAF, and <code>dnsrecon</code> provided additional DNS information.<br>
+
+During the Phase 2 Zenmap network scanning activity, I determined my local network configuration and identified active hosts using Windows <code>ipconfig /all</code> and Zenmap. I gathered IP and MAC address details and developed a network topology.<br>
+
+The exercises demonstrated that gathering information is a fundamental component of cybersecurity.<br>
+
+I learned that reconnaissance and scanning must consistently be conducted within an authorized scope.<br>
+
+Finally, a high-quality cybersecurity report should describe what was performed, what was discovered, the significance of the observation, the risk it may create, and the measures that can be taken to mitigate that risk.<br>
+
+## 8. Empirical Evidence Collected
 
 
 
