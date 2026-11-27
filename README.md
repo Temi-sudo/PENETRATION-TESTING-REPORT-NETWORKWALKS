@@ -122,7 +122,7 @@ PORT & STATUS<br>
 <code>192.168.43.1</code> Wi-Fi host<br> 
 PORT & STATUS<br>
 <code>53/tcp  open  domain</code><br>
-The example results also included two MAC addresses<br>
+The example results also included two MAC addresses
 
   ## 5. Risk Analysis / Impact
   <table>
@@ -137,7 +137,7 @@ The example results also included two MAC addresses<br>
         <td>1</td>
         <td><b>Web technology information exposed</b></td>
         <td>WhatWeb identified WordPress <code>7.1.5</code> & WP Download Manager <code>.3.80</code>;<br> DNSRecon exposed <code>BIND 9.16.50-RH</code></td>
-        <td>Attackers can exploit exposed technology and version information to discover software that requires security evaluation, allowing them to compare specific software versions to public CVE exploit databases.</td>  
+        <td>Attackers can exploit exposed technology and version information to discover software <br>that requires security evaluation, allowing them to compare specific software versions <br>to public CVE exploit databases.</td>  
       <td>🟠 Medium</td>   
       </tr>
       <tr>
@@ -163,7 +163,7 @@ The example results also included two MAC addresses<br>
       </tr>
         <tr>
         <td>5</td>
-        <td><b>DNS infrastructure information exposed</b></td> 			● Medium
+        <td><b>DNS infrastructure information exposed</b></td> 
         <td>DNSRecon identified DNS, mail, and service-related records</td>
         <td>DNS information can help build a broader infrastructure profile</td>
               <td>🟠 Medium</td>   
@@ -171,7 +171,7 @@ The example results also included two MAC addresses<br>
         <tr>
       <td>6</td>
         <td><b>Multiple live hosts visible on local network</b></td> 	
-        <td>Zenmap identified four live hosts in the example network Zenmap discovered 3 live nodes on 192.168.43.0/24 and open ports 135, 139, 445/tcp</td>
+        <td>Zenmap identified four live hosts in the example network, <br>discovered 3 live nodes on 192.168.43.0/24 and open ports 135, 139, 445/tcp</td>
         <td>Unknown or unauthorized devices may potentially be present on a network</td>
               <td>🟠 Medium</td>   
       </tr>
