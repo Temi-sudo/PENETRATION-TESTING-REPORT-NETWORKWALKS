@@ -118,12 +118,12 @@ The report includes command syntax, observed results, attacker significance, and
 PORT & STATUS<br>
 <code>135/tcp  open  msrpc</code><br>
 <code>139/tcp  open  netbios-ssn</code><br>
-<code>445/tcp  open  microsoft-ds</code><br>
+<code>445/tcp  open  microsoft-ds</code><br><br>
 
-<b>Wi-Fi host</b> <code>192.168.43.1</code> 
+<b>Wi-Fi host</b> <code>192.168.43.1</code><br> 
 PORT & STATUS<br>
-<code>53/tcp  open  domain</code><br>
-The example results also included two MAC addresses
+<code>53/tcp  open  domain</code>
+<p>The example results also included two MAC addresses</p>
 
   ## 5. Risk Analysis / Impact
   <table>
