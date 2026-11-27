@@ -17,7 +17,7 @@
       </tr>
         <tr>
         <td><b>Date	</b></td>
-        <td>13 November 2026</td>
+        <td>27 November 2026</td>
       </tr>
         <tr>
         <td><b>Modules</b></td>
@@ -26,7 +26,7 @@
       </tr>
         <tr>
         <td><b>Authorized Target</b></td>
-        <td>1. networkwalks.com & scanme.nmap.org (Authorized External Targets)
+        <td>1. networkwalks.com & scanme.nmap.org (Authorized External Targets)<br>
             2. My Local Network</td>
       </tr>
         <tr>
@@ -37,11 +37,6 @@
         <td><b>Phases covered</b></td>
         <td><b>Phase 1:</b> Reconnaissance & Footprinting<br>
             <b>Phase 2:</b>Scanning & Network Discovery<br>
-            <b>Phase 3:</b> In Progress</td>
-      </tr>
-        <tr>
-      <td><b>Pentester Name (Cybersecurity Expert)</b></td>
-        <td>Analyst</td>
       </tr>
   </table>
 
@@ -101,28 +96,33 @@ The report includes command syntax, observed results, attacker significance, and
   ### 4.1 Footprinting & Reconnaissance:
   I conducted reconnaissance on the networkwalks.com domain using six Kali Linux tools: <code>whois</code>, <code>whatweb</code>, <code>nslookup</code>, <code>curl -I</code>, <code>wafw00f</code>, and <code>dnsrecon</code>. Each tool served a distinct purpose and gathered different information about the target. <br>
   <pre><code>whois networkwalks.com</code></pre>
-  <b>whois</b> provided domain registration details and name servers. 
+  <b>whois</b> provided domain registration details such as Registrar WHOIS Server: <code>whois.godaddy.com</code>, Registrar IANA ID: <code>146</code> and Name Servers:<code>NS6135.HOSTGATOR.COM and NS6136.HOSTGATOR.COM</code>  
   <pre><code>whatweb networkwalks.com</code></pre>
-  <b>whatweb</b> identified technologies such as WordPress 7.0.4. used by the website
+  <b>whatweb</b> identified information about target's server <b>IP</b><code>[192.232.216.135]</code> and <b>Country</b><code>[UNIED STATES]</code><br>
+  Further observation reveals <b>MetaGenerator</b> technologies such as<code>[WordPress 7.1.5.WordPress Download Manager 3.3.80]</code> used by the website
   <pre><code>nslookup networkwalks.com</code></pre>
-  Nslookup resolved the domain name to IP address 192.232.216.135.
+  Nslookup cmd used Google DNS server<code>(8.8.8.8)</code> to resolve the domain name <code>networkwalks.com</code> to IP address <code>192.232.216.135.</code>
   <pre><code>curl -I https://networkwalks.com</code></pre>
-  <b>curl -I</b> showcased HTTP response headers and revealed the WordPress REST API endpoint. 
-  <pre><code>wafw00f networkwalks.com</code></pre>
-  <b>wafw00f</b> confirmed ModSecurity as a Web Application Firewall. 
+  <b>curl -I</b> showcased HTTP response headers and revealed the WordPress REST API endpoint at: <code>https://networkwalks.com/wp-json(https://networkwalks.com/wp-json/wp/v2/pages/53)</code>. 
+  <pre><code>wafw00f networkwalks.com</code>
+ <b>wafw00f</b> confirmed ModSecurity(SpiderLabs) as the Web Application Firewall. 
   <pre><code>dnsrecon -d networkwalks.com</code></pre>
-  <b>dnsreco</b> enumerated DNS records, including name and mail servers.
+ <b>dnsrecon</b> enumerated DNS records such as Start of Authority (SOA) record, NS (Name Server) record, MX (Mail Exchange) record, A (Address) record, TXT (text) record, and SRV (Service) record.
   ### 4.2 Network Scanning with Zenmap
   For the second activity, network discovery was performed using Zenmap. <br>
-  The initial step involved identifying my local IP address and subnet via the Windows <code>ipconfig</code> command. <br>
-  Next, Zenmap's <b>Ping Scan</b> feature was employed to discover all active hosts on my network and gather their IP and MAC addresses,    leading to network topology generation.<br>
-  The example results provided in the practical identified two live hosts:
+  The initial step involved identifying my local IP address and subnet via the Windows <code>ipconfig /all</code> command. <br>
+  Next, Zenmap's <b>Ping Scan</b> feature was employed to discover all active hosts on my network and gather their IP and MAC addresses, leading to network topology generation.<br>
+The example results provided in the practical identified two live hosts:<br>
+<code>192.168.43.24 - DESKTOP-2VTOGFN</code> My Local Network IP<br>
+PORT & STATUS<br>
+<code>135/tcp  open  msrpc</code><br>
+<code>139/tcp  open  netbios-ssn</code><br>
+<code>445/tcp  open  microsoft-ds</code><br>
 
-10.0.0.1
-10.0.0.4
-10.0.0.19
-10.0.0.5
-The example results also included two MAC addresses.
+<code>192.168.43.1</code> Wi-Fi host<br> 
+PORT & STATUS<br>
+<code>53/tcp  open  domain</code><br>
+The example results also included two MAC addresses<br>
 
   ## 5. Risk Analysis / Impact
   <table>
@@ -135,8 +135,8 @@ The example results also included two MAC addresses.
       </tr>
       <tr>
         <td>1</td>
-        <td><b>Web technology information exposed</b></td> 
-        <td>WhatWeb identified WordPress <code>7.1.4</code> & WP Download Manager <code>3.3.77</code>; DNSRecon exposed <code>BIND 9.16.23-RH</code></td>
+        <td><b>Web technology information exposed</b></td>
+        <td>WhatWeb identified WordPress <code>7.1.5</code> & WP Download Manager <code>.3.80</code>;<br> DNSRecon exposed <code>BIND 9.16.50-RH</code></td>
         <td>Attackers can exploit exposed technology and version information to discover software that requires security evaluation, allowing them to compare specific software versions to public CVE exploit databases.</td>  
       <td>🟠 Medium</td>   
       </tr>
@@ -164,14 +164,14 @@ The example results also included two MAC addresses.
         <tr>
         <td>5</td>
         <td><b>DNS infrastructure information exposed</b></td> 			● Medium
-        <td>DNSRecon identified DNS, mail and service-related records</td>
+        <td>DNSRecon identified DNS, mail, and service-related records</td>
         <td>DNS information can help build a broader infrastructure profile</td>
               <td>🟠 Medium</td>   
       </tr>
         <tr>
       <td>6</td>
         <td><b>Multiple live hosts visible on local network</b></td> 	
-        <td>Zenmap identified four live hosts in the example network Zenmap discovered 3 live nodes on 192.168.43.0/24 and open ports 135, 139, 445/tcp on 10.0.0.10</td>
+        <td>Zenmap identified four live hosts in the example network Zenmap discovered 3 live nodes on 192.168.43.0/24 and open ports 135, 139, 445/tcp</td>
         <td>Unknown or unauthorized devices may potentially be present on a network</td>
               <td>🟠 Medium</td>   
       </tr>
@@ -229,6 +229,26 @@ I learned that reconnaissance and scanning must consistently be conducted within
 Finally, a high-quality cybersecurity report should describe what was performed, what was discovered, the significance of the observation, the risk it may create, and the measures that can be taken to mitigate that risk.<br>
 
 ## 8. Empirical Evidence Collected
+Screenshots evidences collected<br>
+### 8.1 Penetration Testing Evidence
+<code>1. whois</code> result<br>
+<img width="884" height="594" alt="whois" src="https://github.com/user-attachments/assets/fb20025e-25e6-49be-a62b-8454ce377016" />
+<code>2. whatweb</code> result<br>
+<img width="893" height="583" alt="whatweb" src="https://github.com/user-attachments/assets/9978f1a6-fe54-4f16-9232-ecc357f7e326" />
+<code>3. nslookup</code> result<br>
+<img width="897" height="588" alt="nslookup" src="https://github.com/user-attachments/assets/3bb2f07d-6771-4da4-a54a-6c63dc873c9b" />
+<code>4. curl -I</code> result<br>
+<img width="889" height="587" alt="curl -I" src="https://github.com/user-attachments/assets/11674dd9-21a9-4567-9480-e875cdd9029c" />
+<code>5. wafw00f</code> result<br>
+<img width="891" height="588" alt="wafw00f" src="https://github.com/user-attachments/assets/8cb14789-5314-4181-804e-a04d1e66cfe1" />
+<code>6. dnsrecon</code> result<br>
+<img width="889" height="597" alt="dnsrecon" src="https://github.com/user-attachments/assets/d374ea38-3397-4015-a120-ba3b0a5eb104" />
 
-
+### 8.2 Network Scanning Evidence
+<code>7. ipconfig /all</code> my local network result<br>
+<img width="982" height="524" alt="ipconfig all - my local network" src="https://github.com/user-attachments/assets/cdc7b4ec-2999-47d6-9dff-35ec0979c3ce" />
+<code>8. Host Zenmap Regular Scan</code> result<br>
+<img width="944" height="654" alt="Host Zenmap Regular Scan" src="https://github.com/user-attachments/assets/f06a649c-f975-4197-b227-f84304a710e7" />
+<code>9. Host Zenmap Regular Scan Topology</code> result<br>
+<img width="1273" height="648" alt="Host Zenmap Scan Topology" src="https://github.com/user-attachments/assets/ae2f3b2c-e66a-4a4f-b739-9778a578bf54" />
 
