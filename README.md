@@ -120,7 +120,7 @@ PORT & STATUS<br>
 <code>139/tcp  open  netbios-ssn</code><br>
 <code>445/tcp  open  microsoft-ds</code><br><br>
 
-<b>Wi-Fi host</b> <code>192.168.43.1</code><br> 
+<b>Wi-Fi host IP</b> <code>192.168.43.1</code><br> 
 PORT & STATUS<br>
 <code>53/tcp  open  domain</code>
 <p>The example results also included two MAC addresses</p>
