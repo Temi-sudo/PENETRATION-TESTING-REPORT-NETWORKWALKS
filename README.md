@@ -112,9 +112,9 @@ The report includes command syntax, observed results, attacker significance, and
   ### 4.2 Network Scanning with Zenmap
   For the second activity, I performed network discovery using Zenmap. <br>
   The initial step involved identifying my local IP address and subnet via the Windows <code>ipconfig /all</code> command. <br>
-  Next, Zenmap's <b>Ping Scan</b> feature was employed to discover all active hosts on my network and gather their IP and MAC addresses, leading to network topology generation.<br>
-The example results provided in the practical identified two live hosts:<br>
-<b>My Local Network IP</b> <code>192.168.43.24 - DESKTOP-2VTOGFN</code> 
+  <p>Next, Zenmap's <b>Ping Scan</b> feature was employed to discover all active hosts on my network and gather their IP and MAC addresses, leading to network topology generation.</p>
+<p>The example results provided in the practical identified two live hosts:</p>
+<b>My Local Network IP</b> <code>192.168.43.24 - DESKTOP-2VTOGFN</code> <br>
 PORT & STATUS<br>
 <code>135/tcp  open  msrpc</code><br>
 <code>139/tcp  open  netbios-ssn</code><br>
