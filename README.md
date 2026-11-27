@@ -114,13 +114,13 @@ The report includes command syntax, observed results, attacker significance, and
   The initial step involved identifying my local IP address and subnet via the Windows <code>ipconfig /all</code> command. <br>
   Next, Zenmap's <b>Ping Scan</b> feature was employed to discover all active hosts on my network and gather their IP and MAC addresses, leading to network topology generation.<br>
 The example results provided in the practical identified two live hosts:<br>
-<code>192.168.43.24 - DESKTOP-2VTOGFN</code> My Local Network IP<br>
+<b>My Local Network IP</b> <code>192.168.43.24 - DESKTOP-2VTOGFN</code> 
 PORT & STATUS<br>
 <code>135/tcp  open  msrpc</code><br>
 <code>139/tcp  open  netbios-ssn</code><br>
 <code>445/tcp  open  microsoft-ds</code><br>
 
-<code>192.168.43.1</code> Wi-Fi host<br> 
+<b>Wi-Fi host</b> <code>192.168.43.1</code> 
 PORT & STATUS<br>
 <code>53/tcp  open  domain</code><br>
 The example results also included two MAC addresses
