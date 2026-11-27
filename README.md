@@ -17,7 +17,7 @@
       </tr>
         <tr>
         <td><b>Date	</b></td>
-        <td>27 November 2026</td>
+        <td>27th November 2026</td>
       </tr>
         <tr>
         <td><b>Modules</b></td>
@@ -35,8 +35,9 @@
       </tr>
         <tr>
         <td><b>Phases covered</b></td>
-        <td><b>Phase 1:</b> Reconnaissance & Footprinting<br>
-            <b>Phase 2:</b>Scanning & Network Discovery<br>
+        <td><b>Phase 1:</b> Reconnaissance & Footprinting<br><br>
+            <b>Phase 2:</b> Scanning & Network Discovery<br><br>
+            <b>Phase 3:</b> Risk Analysis & Report Writing<br>
       </tr>
   </table>
 
@@ -101,15 +102,15 @@ The report includes command syntax, observed results, attacker significance, and
   <b>whatweb</b> identified information about target's server <b>IP</b><code>[192.232.216.135]</code> and <b>Country</b><code>[UNIED STATES]</code><br>
   Further observation reveals <b>MetaGenerator</b> technologies such as<code>[WordPress 7.1.5.WordPress Download Manager 3.3.80]</code> used by the website
   <pre><code>nslookup networkwalks.com</code></pre>
-  Nslookup cmd used Google DNS server<code>(8.8.8.8)</code> to resolve the domain name <code>networkwalks.com</code> to IP address <code>192.232.216.135.</code>
+  <b>nslookup</b> cmd used Google DNS server<code>(8.8.8.8)</code> to resolve the domain name <code>networkwalks.com</code> to IP address <code>192.232.216.135.</code>
   <pre><code>curl -I https://networkwalks.com</code></pre>
-  <b>curl -I</b> showcased HTTP response headers and revealed the WordPress REST API endpoint at: <code>https://networkwalks.com/wp-json(https://networkwalks.com/wp-json/wp/v2/pages/53)</code>. 
-  <pre><code>wafw00f networkwalks.com</code>
+  <b>curl -I</b> showed HTTP response headers and revealed the WordPress REST API endpoint at <code>https&#8203;://networkwalks.com/wp-json - https&#8203;://networkwalks.com/wp-json/wp/v2/pages/53)</code>. 
+  <pre><code>wafw00f networkwalks.com</code></pre>
  <b>wafw00f</b> confirmed ModSecurity(SpiderLabs) as the Web Application Firewall. 
   <pre><code>dnsrecon -d networkwalks.com</code></pre>
  <b>dnsrecon</b> enumerated DNS records such as Start of Authority (SOA) record, NS (Name Server) record, MX (Mail Exchange) record, A (Address) record, TXT (text) record, and SRV (Service) record.
   ### 4.2 Network Scanning with Zenmap
-  For the second activity, network discovery was performed using Zenmap. <br>
+  For the second activity, I performed network discovery using Zenmap. <br>
   The initial step involved identifying my local IP address and subnet via the Windows <code>ipconfig /all</code> command. <br>
   Next, Zenmap's <b>Ping Scan</b> feature was employed to discover all active hosts on my network and gather their IP and MAC addresses, leading to network topology generation.<br>
 The example results provided in the practical identified two live hosts:<br>
@@ -229,7 +230,7 @@ I learned that reconnaissance and scanning must consistently be conducted within
 Finally, a high-quality cybersecurity report should describe what was performed, what was discovered, the significance of the observation, the risk it may create, and the measures that can be taken to mitigate that risk.<br>
 
 ## 8. Empirical Evidence Collected
-Screenshots evidences collected<br>
+Screenshot evidence collected<br>
 ### 8.1 Penetration Testing Evidence
 <code>1. whois</code> result<br>
 <img width="884" height="594" alt="whois" src="https://github.com/user-attachments/assets/fb20025e-25e6-49be-a62b-8454ce377016" />
